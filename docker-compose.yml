@@ -1,0 +1,67 @@
+version: '3.7'
+
+services:
+
+  daw-php:
+    image: thecodingmachine/php:7.3-v2-apache-node10
+    container_name: daw-php
+    environment:
+      APACHE_DOCUMENT_ROOT: daw-php
+      PHP_INI_MEMORY_LIMIT: 1G
+      PHP_INI_POST_MAX_SIZE: 256M
+      PHP_INI_UPLOAD_MAX_FILESIZE: 256M
+      # Disable XDebug in production
+      PHP_EXTENSION_XDEBUG: 1
+      PHP_EXTENSION_GD: 1
+      PHP_EXTENSION_BCMATH: 1
+      PHP_EXTENSION_EXIF: 1
+      PHP_EXTENSION_IMAGICK: 1
+      PHP_EXTENSION_MEMCACHED: 1
+      PHP_INI_ERROR_REPORTING: E_ALL
+      PHP_INI_XDEBUG__IDEKEY: VSCODE
+      PHP_INI_XDEBUG__CLI_COLOR: 1
+      PHP_INI_XDEBUG__REMOTE_PORT: 9000
+      PHP_INI_XDEBUG__SHOW_LOCAL_VARS: 1
+      PHP_INI_XDEBUG__REMOTE_AUTOSTART: 1
+      STARTUP_COMMAND_1: curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+      STARTUP_COMMAND_2: chmod +x wp-cli.phar
+      STARTUP_COMMAND_3: sudo mv wp-cli.phar /usr/local/bin/wp
+    volumes:
+      - ./app:/var/www/html:rw
+    networks:
+      - default
+    restart: always
+        
+  mysql:
+    image: mysql:5.7
+    container_name: mysql.daw-php
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: daw-php
+      MYSQL_USER: daw-php
+      MYSQL_PASSWORD: daw-php
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./services/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf:ro
+      - ./database:/database:rw
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    container_name: pma.daw-php
+    environment:
+      PMA_HOST: mysql.daw-php.local
+      PMA_USER: daw-php
+      PMA_PASSWORD: daw-php
+    networks:
+      - default
+
+volumes:
+  
+  mysql_data:
+    driver: local
+
+networks:
+  default:
+    external:
+      name: local
