@@ -1,0 +1,6 @@
+[submodule "app/tools/command"]
+	path = app/tools/command
+	url = git@gitlab.com:ekkode/tools/command.git
+[submodule "knowledge"]
+	path = knowledge
+	url = git@gitlab.com:ekkode/tools/knowledge.git
