@@ -1,52 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <?php include('head.html');?>
+    <?php include('views/head.html');?>
     <body>
-       <!-- <h1><?php echo $a . $b . $c; ?></h1> 
-       <h2><?php print(13 % 5)?></h2>
-       <h3><?php 
-       
-        $v = [4, 3, 2, 6, 7, 8];
-        for($i = 0; $i < count($v); $i++) {
-            if($i < count($v) - 1) {
-                echo $v[$i] . ', ';
-            }
-            else {
-                echo $v[$i];
-            }   
-        }
-        ?></h3> -->
-        <h1>Contact</h1>
-        <div>
-            <form action="" method="POST">
-                <div>
-                    <label for="gender">Gender</label>
-                    <select name="gender" id="gender">
-                        <?php for($i = 0; $i < count($availableGenders); $i++) { ?>
-                            <option value="<?php echo $availableGenders[$i]['value'];?>"><?php echo $availableGenders[$i]['name'];?></option>
-                        <?php } ?>
-                    </select>
+       <div class="header">
+            <div class="navbar">
+                <div class="logo">DAW</div>
+                <div class="menu">
+                    <div class="menu-item">
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="#sessions">Sessions</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="#students">Students</a>
+                    </div>
                 </div>
-                <div>
-                    <label for="position">Position</label>
-                    <select name="position" id="position">
-                        <?php foreach($positions as $key => $value) { ?>
-                            <option value="<?php echo $key;?>"><?php echo $value;?></option>
-                        <?php } ?>
-                    </select>
+            </div>
+            <div class="slider">
+                <h1>Laborator DAW</h1>
+            </div>
+        </div>
+        <div class="container">
+            <!--
+            <div id="about" class="about">
+                <div class="item">
+                    <h3>Lorem ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                <div>
-                    <label for="firstname">First name</label>
-                    <input type="text" name="firstname" id="firstname">
+                <div class="item">
+                    <h3>Lorem ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                <div>
-                    <label for="lastname">Last name</label>
-                    <input type="text" name="lastname" id="lastname">
+                <div class="item">
+                    <h3>Lorem ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                <div>
-                    <input type="submit" value="<?php echo $buttonText;?>">
+            </div>
+            <div id="sessions" class="sessions">
+                <h2>Sessions</h2>
+                <p>Sessions subtitle</p>
+            </div>
+            -->
+            <div id="students" class="students">
+                <h2 class="paragraph-title">Students</h2>
+                <p class="paragraph-subtitle">Students subtitle</p>
+                <a href="/student/new.php">Add a student</a>
+                <div class="students-container">
+                    <?php foreach($students as $student) { ?>
+                        <div class="student-item">
+                            <div class="name"><?php echo $student['firstname'] . ' ' . $student['lastname']; ?></div>
+                            <div class="bio"><?php echo $student['bio']; ?></div>
+                        </div>
+                    <?php } ?>
                 </div>
-            </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">2020. DAW.</div>
         </div>
     </body>
 </html>

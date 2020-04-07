@@ -1,0 +1,67 @@
+body {
+  margin: 0px;
+}
+
+.header .navbar {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.header .navbar .logo {
+  width: 25%;
+  float: left;
+  color: #40e0d0;
+  font-size: 20px;
+  text-align: center;
+}
+.header .navbar .menu {
+  width: 75%;
+  float: left;
+  display: flex;
+  justify-content: flex-end;
+}
+.header .navbar .menu .menu-item {
+  padding: 0px 10px;
+  font-weight: bold;
+}
+.header .navbar .menu .menu-item a {
+  color: #40e0d0;
+  text-decoration: none;
+}
+.header .slider {
+  height: 320px;
+  clear: both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #1d2951;
+}
+
+.students h2 {
+  font-size: 30px;
+  color: lightgray;
+  text-align: center;
+}
+.students .paragraph-subtitle {
+  font-size: 20px;
+  color: #40e0d0;
+  text-align: center;
+}
+.students .students-container {
+  display: flex;
+  justify-content: center;
+}
+.students .students-container .student-item {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #1d2951;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
