@@ -1,70 +1,46 @@
-@import "_variables";
-@import "_mixins";
+@import '_variables';
+@import '_mixins';
+@import '_reset';
+@import '_topbar';
+@import '_navbar';
 
-body {
-    margin: 0px;
-}
-.header {
-    .navbar {
-        display: flex;
-        align-items: center;
-        height: 80px;
-        .logo {
-            width: 25%;
-            float: left;
-            color: $color-green;
-            font-size: 20px;
-            text-align: center;
-        }
-        .menu {
-            width: 75%;
-            float: left;
-            display: flex;
-            justify-content: flex-end;
-            .menu-item {
-                padding: 0px 10px;
-                font-weight: bold;
-                a {
-                    color: $color-green;
-                    text-decoration: none;
-                }
+.slider {
+    height: 768px;
+    width: 100%;
+    background-image: url('/assets/images/daw_bg1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    .first-row {
+        position: absolute;
+        left: 50px;
+        bottom: 120px;
+        font-size: 70px;
+        font-weight: bold;
+        color: $white;
+    }
+    .second-row {
+        position: absolute;
+        left: 50px;
+        bottom: 70px;
+        font-size: 40px;
+        font-weight: bold;
+        color: $white;
+        span {
+            text-decoration: underline;
+            &::after {
+                content: '|';
+                display: inline-block;
+                animation:blinkingCursor 0.5s infinite;
             }
         }
-    }
-    .slider {
-        height: 320px;
-        clear: both;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        color: $color-blue;
+        
     }
 }
-.students {
-    h2 {
-        font-size: 30px;
-        color: lightgray;
-        text-align: center;
-    }
-    .paragraph-subtitle {
-        font-size: 20px;
-        color: $color-green;
-        text-align: center;
-    }
-    .students-container {
-        display: flex;
-        justify-content: center;
-        .student-item {
-            width: 200px;
-            height: 200px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-direction: column;
-            border: 1px solid $color-blue;
-            border-radius: 5px;
-            margin: 10px;
-        }
-    }
+
+@keyframes blinkingCursor {
+    0%{    color: $white; }
+    50%{    color: $white; }
+    100%{   color: transparent;    }
 }

@@ -1,0 +1,48 @@
+@mixin title($color, $font-size) {
+    color: $color;
+    font-size: $font-size;
+    text-transform: capitalize;
+}
+@mixin button($bg-color, $color, $padding, $font-size, $border: none, $width: auto, $height: auto) {
+    @if $border != none {
+        border: $border;
+    }
+    background-color: $bg-color;
+    color: $color;
+    font-size: $font-size;
+}
+@mixin flex($justify-content: center, $align-items: center) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+@mixin small-bellow {
+    @media (max-width: $small-screen) {
+        @content
+    }
+}
+@mixin small-above {
+    @media (min-width: $small-screen) {
+        @content
+    }
+}
+@mixin medium-bellow {
+    @media (max-width: $medium-screen) {
+        @content
+    }
+}
+@mixin medium-above {
+    @media (min-width: $medium-screen) {
+        @content
+    }
+}
+@mixin large-bellow {
+    @media (max-width: $large-screen) {
+        @content
+    }
+}
+@mixin large-above {
+    @media (min-width: $large-screen) {
+        @content
+    }
+}

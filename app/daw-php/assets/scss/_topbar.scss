@@ -1,0 +1,71 @@
+.header {
+    .topbar {
+        width: 100%;
+        height: $mobile-topbar-height;
+        background-color: $dark-blue;
+        color: $white;
+        font-size: 14px;
+        @include large-above {
+            height: 40px;
+        }
+        .menu {
+            @include flex;
+            height: 40px;
+            .menu-item {
+                padding: 11px 0px;
+                position: relative;
+                z-index: 100;
+                &:first-of-type {
+                    a {
+                        border-right: 1px solid $darker-blue;
+                    }
+                }
+                a {
+                    padding: 0px 20px;
+                    color: $white;
+                    text-transform: uppercase;
+                }
+                .dropdown {
+                    display: none;
+                    position: absolute;
+                    top: 38px;
+                    .menu-item {
+                        padding: 5px 7px;
+                        background-color: $darkest-gray;
+                        border-bottom: 1px solid $darker-gray;
+                        font-size: 12px;
+                        &:last-of-type {
+                            border-bottom: none;
+                        }
+                        a {
+                            color: $dark-gray;
+                            border-right: none;
+                        }
+                    }
+                }
+                &:hover {
+                    .dropdown {
+                        display: block;
+                    }
+                }
+                &.secondary {
+                    display:none;
+                    @include large-above {
+                        display:block;
+                        a {
+                            padding: 0px 10px;
+                        }
+                    }
+                }
+            }
+            &:first-of-type {
+                .menu-item {
+                    z-index: 200;
+                }
+            }
+        }
+        @include large-above {
+            @include flex($justify-content: space-between);
+        }
+    }
+}

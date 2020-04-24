@@ -1,0 +1,91 @@
+.header {
+    .navbar {
+        height: 126px;
+        width: 100%;
+        .logo-container {
+            height: 73px;
+            padding: 0px 20px;
+            box-sizing: border-box;
+            @include flex;
+            h1 {
+                display: none;
+            }
+            img {
+                width: 170px;
+            }
+            @include small-above {
+                width: 30%;
+                @include flex($justify-content: flex-start);
+            }
+        }
+        .menu-container {
+            height: 53px;
+            padding: 0px 20px;
+            box-sizing: border-box;
+            @include flex($align-items: flex-start);
+            button {
+                padding: 0px 20px;
+                color: $light-gray;
+            }
+            .main-menu {
+                display: none;
+            }
+            @include small-above {
+                width: 70%;
+                @include flex($justify-content: flex-end);
+            }
+            @include large-above {
+                .menu-btn {
+                    display: none;
+                }
+                .main-menu {
+                    @include flex;
+                    text-transform: uppercase;
+                    .menu-item {
+                        padding: 0px 20px;
+                        a {
+                            color: $dark-gray;
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 0px;
+                bottom: 0px;
+                right: -300px;
+                width: 300px;
+                background: $green;
+                z-index: 500;
+                .close-btn {
+                    position: absolute;
+                    color: $white;
+                    font-size: 24px;
+                    text-emphasis: right;
+                    top: 15px;
+                    right: 15px;
+                }
+                ul {
+                    margin-top: 50px;
+                    .menu-item {
+                        padding: 10px 40px;
+                        a {
+                            color: $white;
+                            text-transform: lowercase;
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+        @include small-above {
+            height: 70px;
+            @include flex;
+        }
+        @include large-above {
+            height: 75px;
+        }
+    }
+}
