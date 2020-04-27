@@ -1,7 +1,7 @@
 <?php 
 
 function createConnection() {
-    $myConnection = mysqli_connect('mysql.daw-php.local', 'daw-php', 'daw-php', 'daw-php');
+    $myConnection = mysqli_connect($_SERVER['DB_HOST'], $_SERVER['DB_USER'], $_SERVER['DB_PASS'], $_SERVER['DB_NAME']);
 
     if($myConnection == false || $myConnection->connect_errno) {
         echo 'Database error ' . $myConnection->connect_error;

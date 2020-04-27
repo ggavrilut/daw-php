@@ -9,7 +9,7 @@ services:
       APACHE_DOCUMENT_ROOT: daw-php
       PHP_INI_MEMORY_LIMIT: 1G
       PHP_INI_POST_MAX_SIZE: 256M
-      PHP_INI_UPLOAD_MAX_FILESIZE: 256M
+      PHP_INI_UPLOAD_MAX_FILESIZE: 2M
       # Disable XDebug in production
       PHP_EXTENSION_XDEBUG: 1
       PHP_EXTENSION_GD: 1

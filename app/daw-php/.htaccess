@@ -1,0 +1,35 @@
+# https://httpd.apache.org/docs/2.4/rewrite/intro.html
+
+## Deny all requests
+#Deny from all
+
+## Deny except IP Redirect to error page
+#ErrorDocument 403 http://www.yahoo.com/
+#Order deny,allow
+#Deny from all
+#Allow from 208.113.134.190
+
+## Securizare
+#AuthName "Under Development"
+#AuthUserFile /var/www/html/daw-php/.htpasswd
+#AuthType basic
+#Require valid-user
+#Order deny,allow
+#Deny from all
+#Satisfy Any
+
+## Seteaza variabile de environment
+SetEnv DB_HOST mysql.daw-php.local
+SetEnv DB_NAME daw-php
+SetEnv DB_USER daw-php
+SetEnv DB_PASS daw-php
+
+##rewrites - mod_rewrite needed
+#Options +FollowSymLinks
+#RewriteEngine On
+#RewriteRule ^phpinfo.php.*$ http://daw-php.local/student/new [R=301,L]
+
+#RewriteEngine On
+# RewriteBase /
+# RewriteRule ^/student/ /create-student? [R=301,L]
+# RewriteRule ^create-student$ /student/new.php [L]

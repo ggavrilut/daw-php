@@ -2,27 +2,9 @@
 <html>
     <?php include('../views/head.html');?>
     <body>
-       <div class="header">
-            <div class="navbar">
-                <div class="logo">DAW</div>
-                <div class="menu">
-                    <div class="menu-item">
-                        <a href="#about">About</a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#sessions">Sessions</a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="#students">Students</a>
-                    </div>
-                </div>
-            </div>
-            <div class="slider">
-                <h1>Laborator DAW</h1>
-            </div>
-        </div>
+        <?php include(DOCUMENT_ROOT . '/views/header.html');?>
         <div class="container">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div class="column">
                     <div class="form-item">
                         <div class="form-label">
@@ -71,15 +53,15 @@
                         <div class="form-widget">
                             <input type="file" name="image" id="image">
                         </div>
+                        <?php if(isset($errors) && array_key_exists('image', $errors)) { ?>
+                            <div class="error"><?php echo $errors['image']; ?></div>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="form-item">
                     <input type="submit" value="Save"/>
                 </div>
             </form>
-        </div>
-        <div class="footer">
-            <div class="copyright">2020. DAW.</div>
         </div>
     </body>
 </html>
